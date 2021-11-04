@@ -2,7 +2,7 @@
         <head>
         <title>cp2021 homework site</title>
         <meta charset="utf-8">
-<meta property="head" content="H1">
+<meta property="head" content="H2">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700,900" rel="stylesheet">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/icomoon/style.css">
@@ -139,36 +139,96 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">run << <a href='run.html'>Previous</a> <a href='Final Project.html'>Next</a> >> Final Project<br /><h1>HW3</h1>
+    <div id="tipue_search_content">HW2 << <a href='HW2.html'>Previous</a> <a href='HW3.html'>Next</a> >> HW3<br /><h1>run</h1>
+<!-- 導入 brython 程式庫 -->
+<script src="./../cmsimde/static/brython.js"></script>
+<script src="./../cmsimde/static/brython_stdlib.js"></script>
+<!-- 啟動 Brython -->
+<script>
+window.onload=function(){
+brython({debug:1, pythonpath:['./../cmsimde/static/','./../downloads/py/']});
+}
+</script>
+<p><!-- 導入 FileSaver 與 filereader --></p>
+<p>
+<script src="./../cmsimde/static/ace/FileSaver.min.js" type="text/javascript"></script>
+<script src="./../cmsimde/static/ace/filereader.js" type="text/javascript"></script>
+</p>
+<p><!-- 導入 ace --></p>
+<p>
+<script src="./../cmsimde/static/ace/ace.js" type="text/javascript"></script>
+<script src="./../cmsimde/static/ace/ext-language_tools.js" type="text/javascript"></script>
+<script src="./../cmsimde/static/ace/mode-python3.js" type="text/javascript"></script>
+<script src="./../cmsimde/static/ace/snippets/python.js" type="text/javascript"></script>
+</p>
+<p><!-- 請注意, 這裡使用 Javascript 將 localStorage["py_src"] 中存在近端瀏覽器的程式碼, 由使用者決定存檔名稱--></p>
+<p>
+<script type="text/javascript">
+function doSave(storage_id, filename){
+    var blob = new Blob([localStorage[storage_id]], {type: "text/plain;charset=utf-8"});
+    filename = document.getElementById(filename).value
+    saveAs(blob, filename+".py");
+}
+</script>
+</p>
+<p><!-- 印出版次與關鍵字程式 --></p>
+<p>
+<script type="text/python3">
+from browser import document as doc
+import ace
+# 清除畫布
+def clear_bd(ev):
+    bd = doc["brython_div"]
+    bd.clear()
+# Brython 3.3.4 內建的 container 名稱為  'container' 且 turtle 輸出為 svg 必須使用 div 訂定 id
+Ace = ace.Editor(editor_id="kw_editor", console_id="kw_console", container_id="kw__container", storage_id="kw_py_src" )
+# 從 gist 取出程式碼後, 放入 editor 作為 default 程式
+def run():
+    # 利用 get 取下 src 變數值
+    try:
+        url = doc.query["src"]
+    except:
+        url = "https://gist.githubusercontent.com/mdecourse/e896a4705a95ac8cc4147b355b0e87ef/raw/8954b8280c524c5781dc3c0b3565bc489d3aa3a3/cango_gear1.py"
+    prog = open(url).read()
+
+    # 將程式載入編輯區
+    Ace.editor.setValue(prog)
+    Ace.editor.scrollToRow(0)
+    Ace.editor.gotoLine(0)
+    # 直接執行程式
+    #ns = {'__name__':'__main__'}
+    #exec(prog, ns)
+    # 按下 run 按鈕
+    Ace.run()
+
+# 執行程式, 顯示輸出結果與清除輸出結果及對應按鈕綁定
+doc['kw_run'].bind('click', Ace.run)
+doc['kw_show_console'].bind('click', Ace.show_console)
+doc['kw_clear_console'].bind('click', Ace.clear_console)
+doc['clear_bd'].bind('click', clear_bd)
+# 呼叫函式執行
+run()
+</script>
+</p>
+<p><!-- 用來顯示程式碼的 editor 區域 --></p>
+<div id="kw_editor" style="width: 600px; height: 300px;"></div>
+<p><!-- 以下的表單與按鈕與前面的 Javascript doSave 函式以及 FileSaver.min.js 互相配合 --></p>
+<!-- 存擋表單開始 --><form><label>Filename: <input id="kw_filename" placeholder="input file name" type="text"/>.py</label> <input onclick="doSave('kw_py_src', 'kw_filename');" type="submit" value="Save"/></form><!-- 存擋表單結束 -->
 <p></p>
-<p>HW3 - AI 貪食蛇佔學期成績 30%.</p>
-<p><span style="background-color: #ffff99;">HW3 必須在 2021.12.22 22:00 之前完成.</span></p>
-<p><a href="https://github.com/mdecourse/cp2021/discussions/10">HW3 具體項目成果回報區</a>將於 2021.11.09 開啟, 於 <span style="background-color: #ff99cc;">2021.12.22 22:00 關閉</span></p>
-<p>網際貪食蛇的逆襲, 誰的<a href="https://mde.tw/cp2021/content/run.html?src=https://gist.githubusercontent.com/mdecourse/d306a1f57e53bfd6466eaae20bcb9439/raw/2160a12b9fec9707a120a383ed5d38b9b78a02cf/snake.py">自動執行貪食蛇</a>能夠破紀錄? 目前直覺貪食蛇紀錄為 45 節 (除了蛇身節數外, 應該還要置入出現紅色標的物後的總完食時間).</p>
-<p><a href="https://mde.tw/cp2021/content/run.html?src=https://gist.githubusercontent.com/mdecourse/d306a1f57e53bfd6466eaae20bcb9439/raw/f188098281ecaeedeea484c074ab34a05c3086eb/manual_snake.py">手動執行貪食蛇</a>程式說明與整理.</p>
-<p><a href="https://mde.tw/cp2021/content/run.html?src=https://gist.githubusercontent.com/mdecourse/d306a1f57e53bfd6466eaae20bcb9439/raw/2160a12b9fec9707a120a383ed5d38b9b78a02cf/snake.py">自動執行貪食蛇</a>程式說明與整理.</p>
-<p><a href="https://mde.tw/cp2021/content/run.html?src=https://gist.githubusercontent.com/mdecourse/d306a1f57e53bfd6466eaae20bcb9439/raw/2160a12b9fec9707a120a383ed5d38b9b78a02cf/snake.py">自動執行貪食蛇</a>程式的改進.</p>
-<h4>參考資料:</h4>
-<p style="padding-left: 30px;"><a href="https://mde.tw/cp2021/content/Task3.html">https://mde.tw/cp2021/content/Task3.html</a></p>
-<p style="padding-left: 30px;">Brython snake 原始來源: <a href="https://medium.com/swlh/sick-of-javascript-just-use-browser-python-4b9679efe08b">https://medium.com/swlh/sick-of-javascript-just-use-browser-python-4b9679efe08b</a></p>
-<p style="padding-left: 30px;"><a href="https://github.com/mdecourse/snake-Q-Learning">https://github.com/mdecourse/snake-Q-Learning</a></p>
-<p style="padding-left: 30px;"><a href="https://towardsdatascience.com/teaching-a-computer-how-to-play-snake-with-q-learning-93d0a316ddc0">https://towardsdatascience.com/teaching-a-computer-how-to-play-snake-with-q-learning-93d0a316ddc0</a></p>
-<p style="padding-left: 60px;"><a href="https://github.com/mdecourse/SnakeQlearning">https://github.com/mdecourse/SnakeQlearning</a></p>
-<p style="padding-left: 30px;"><a href="https://medium.com/@italohdc/learnsnake-teaching-an-ai-to-play-snake-using-reinforcement-learning-q-learning-b63ac23dfdd1">https://medium.com/@italohdc/learnsnake-teaching-an-ai-to-play-snake-using-reinforcement-learning-q-learning-b63ac23dfdd1</a></p>
-<p style="padding-left: 30px;"><a href="https://towardsdatascience.com/snake-played-by-a-deep-reinforcement-learning-agent-53f2c4331d36">https://towardsdatascience.com/snake-played-by-a-deep-reinforcement-learning-agent-53f2c4331d36</a></p>
-<p style="padding-left: 30px;"><a href="https://www.geeksforgeeks.org/ai-driven-snake-game-using-deep-q-learning/">https://www.geeksforgeeks.org/ai-driven-snake-game-using-deep-q-learning/</a></p>
-<p style="padding-left: 30px;"><a href="https://www3.hs-albsig.de/wordpress/point2pointmotion/2020/10/09/deep-reinforcement-learning-with-the-snake-game/">https://www3.hs-albsig.de/wordpress/point2pointmotion/2020/10/09/deep-reinforcement-learning-with-the-snake-game/</a></p>
-<p style="padding-left: 30px;"><a href="./../downloads/2016_Exploration of Reinforcement Learning to SNAKE.pdf">2016_Exploration of Reinforcement Learning to SNAKE.pdf</a></p>
-<p style="padding-left: 30px;"><a href="./../downloads/train_a_snake_with_reinforceme.pdf">train_a_snake_with_reinforceme.pdf</a></p>
-<p style="padding-left: 30px;"><a href="https://medium.com/@hugo.sjoberg88/using-reinforcement-learning-and-q-learning-to-play-snake-28423dd49e9b">https://medium.com/@hugo.sjoberg88/using-reinforcement-learning-and-q-learning-to-play-snake-28423dd49e9b</a></p>
-<p style="padding-left: 30px;"><a href="https://github.com/mdecourse/Snake-Reinforcement-Learning">https://github.com/mdecourse/Snake-Reinforcement-Learning</a></p>
-<p style="padding-left: 30px;"><a href="./../downloads/Autonomous-Agents-in-Snake-Game-via-Deep-Reinforcement-Learning.pdf">Autonomous-Agents-in-Snake-Game-via-Deep-Reinforcement-Learning.pdf</a></p>
-<h4>延伸應用:</h4>
-<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/PJl4iabBEz0" title="YouTube video player" width="560"></iframe></p>
-<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/5Vy5Dxu7vDs" title="YouTube video player" width="560"></iframe></p>
-<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/6pJBPPrDO40" title="YouTube video player" width="560"></iframe></p>
-<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/VGkcmBaeAGM" title="YouTube video player" width="560"></iframe></p>
-<p><a href="https://github.com/mdecourse/snake-ai-pytorch">https://github.com/mdecourse/snake-ai-pytorch</a></p><br />run << <a href='run.html'>Previous</a> <a href='Final Project.html'>Next</a> >> Final Project</div>
+<!-- 執行與清除按鈕開始 -->
+<p><button id="kw_run">Run</button> <button id="kw_show_console">Output</button> <button id="kw_clear_console">清除輸出區</button><button id="clear_bd">清除繪圖區</button><button onclick="window.location.reload()">Reload</button></p>
+<!-- 執行與清除按鈕結束 -->
+<p></p>
+<!-- 程式執行 ouput 區 -->
+<div style="width: 100%; height: 100%;"><textarea autocomplete="off" id="kw_console"></textarea></div>
+<!-- Brython 程式執行的結果, 都以 brython_div 作為切入位置 -->
+<div id="brython_div"></div>
+<!-- 導入 gearUtils-0.9.js Cango 齒輪繪圖程式庫 -->
+<script src="https://mde.tw/cp2021/cmsimde/static/Cango-24v03-min.js"></script>
+<script src="https://mde.tw/cp2021/cmsimde/static/gearUtils-09.js"></script>
+<script src="https://mde.tw/cp2021/cmsimde/static/SVGpathUtils-6v03-min.js"></script>
+<script src="https://mde.tw/cp2021/cmsimde/static/sylvester.js"></script>
+<script src="https://mde.tw/cp2021/cmsimde/static/PrairieDraw.js"></script><br />HW2 << <a href='HW2.html'>Previous</a> <a href='HW3.html'>Next</a> >> HW3</div>
         
     <!-- footer -->
       <div class="container">
