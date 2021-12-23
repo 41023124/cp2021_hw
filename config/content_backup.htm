@@ -7,7 +7,14 @@
 <p>其他與個人或作業相關資料說明或介紹</p>
 <p></p>
 <h1>Exam</h1>
-<h2>w13</h2>
+<p></p>
+<p dir="auto">請分別利用 random 模組中的 randint(), for 迴圈, range() 函式, 以及 str() 轉字串函式, 列出 10 行文字:</p>
+<p dir="auto">在 18X18 的方格中以按鈕程式, 文字為"列出 10 個座標", 放在個人作業網站中的 Exam (H1) 頁面下的 W13 (H2) 頁面.</p>
+<p dir="auto">執行後文字如下:</p>
+<p dir="auto">第 1 個紅色方塊座標為 (10, 5).<br/>.....</p>
+<p dir="auto">程式完成後, 請推向個人網頁後, 在下列回應中列出網站連結與心得.</p>
+<p dir="auto">延伸應用:</p>
+<p dir="auto">根據<a href="https://mde.tw/cp2021/content/%E7%95%AB%E5%87%BA%E5%BA%A7%E4%BD%8D%E8%A1%A8.html" rel="nofollow">畫出座位表</a>中的程式範例, 能否在 720 pixel x 720 pixel 的畫面中, 以黑色 1 pixel 的直線畫出 18 乘以 18 個方格圖形, 並在上述程式所產生的隨機座標方格中, 以阿拉伯數字按照數字順序, 標示 (以文字繪出) 在各 40 pixel x 40 pixel 方格中.</p><h2>w13</h2>
 <script src="/static/brython.js"></script>
 <script src="/static/brython_stdlib.js"></script>
 <!-- for ggame -->
@@ -125,7 +132,18 @@ src = open(url).read()
 w13 = beditor.editor(src, "kw_editor", "kw_console", "kw__container", "kw_py_src")
 document["w13"].bind("click", w13.prog)
 </script>
-<p><button id="keyword">Keyword</button><button id="w13">列出 10 個座標</button></p><h1>HW1</h1>
+<p>
+<script type="text/python3">
+import beditor
+from browser import document
+url = "https://gist.githubusercontent.com/41023124/25b46ce40b9fc56a00e1c635b46ba256/raw/caa32a80361afdc6931064359bd929664902eb3c/%25E6%2596%25B9%25E6%25A0%25BC%25E4%25B8%25AD%25E5%2588%2597%25E5%2587%25BA%252010%2520%25E5%2580%258B%25E5%25BA%25A7%25E6%25A8%2599"
+src = open(url).read()
+asd = beditor.editor(src, "kw_editor", "kw_console", "kw__container", "kw_py_src")
+document["asd"].bind("click", asd.prog)
+</script>
+</p>
+<p><button id="keyword">Keyword</button><button id="w13">列出 10 個座標</button><button id="asd">方格中列出 10 個座標</button></p>
+<p>// ]]&gt;</p><h1>HW1</h1>
 <p>HW1 - 網際動畫與 touch typing 佔學期成績 20%.</p>
 <p><span style="background-color: #ffff99;">HW1 必須在 2021.10.20 22:00 之前完成</span>.</p>
 <p><a href="https://github.com/mdecourse/cp2021/discussions/8">HW1 具體項目成果回報區</a>將於 2021.09.23 開啟, 於 <span style="background-color: #ff99cc;">2021.10.20 22:00 關閉</span></p>
