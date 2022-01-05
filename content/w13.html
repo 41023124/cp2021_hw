@@ -128,7 +128,7 @@ img.add_border {
                             <li><a href="./../blog/index.html">blog</a></li>
                         </ul>
                       </li>
-                     <li><a href='About.html'>About</a><li class='has-children'><a href='Exam.html'>Exam</a><ul class='dropdown'><li><a href='w13.html'>w13</a></li></ul><li class='has-children'><a href='HW1.html'>HW1</a><ul class='dropdown'><li><a href='HW1-1.html'>HW1-1</a><li><a href='HW1-2.html'>HW1-2</a></li></ul><li class='has-children'><a href='HW2.html'>HW2</a><ul class='dropdown'><li><a href='GitExtensions.html'>GitExtensions</a><li><a href='1a抽點-1.html'>1a抽點-1</a></li></ul><li class='has-children'><a href='W10.html'>W10</a><ul class='dropdown'><li><a href='Examples.html'>Examples</a></li></ul><li class='has-children'><a href='HW3.html'>HW3</a><ul class='dropdown'><li><a href='auto snake.html'>auto snake</a><li><a href='manual snake.html'>manual snake</a><li><a href='ai snake.html'>ai snake</a></li></ul><li><a href='Final Project.html'>Final Project</a><li class='has-children'><a href='W11.html'>W11</a><ul class='dropdown'><li><a href='1a抽點-2.html'>1a抽點-2</a></li>
+                     <li><a href='About.html'>About</a><li class='has-children'><a href='Exam.html'>Exam</a><ul class='dropdown'><li><a href='w13.html'>w13</a></li></ul><li class='has-children'><a href='HW1.html'>HW1</a><ul class='dropdown'><li><a href='HW1-1.html'>HW1-1</a><li><a href='HW1-2.html'>HW1-2</a></li></ul><li class='has-children'><a href='HW2.html'>HW2</a><ul class='dropdown'><li><a href='GitExtensions.html'>GitExtensions</a><li><a href='1a抽點-1.html'>1a抽點-1</a></li></ul><li class='has-children'><a href='W10.html'>W10</a><ul class='dropdown'><li><a href='Examples.html'>Examples</a></li></ul><li class='has-children'><a href='HW3.html'>HW3</a><ul class='dropdown'><li><a href='auto snake.html'>auto snake</a><li><a href='manual snake.html'>manual snake</a><li><a href='ai snake.html'>ai snake</a></li></ul><li><a href='Final Project.html'>Final Project</a><li class='has-children'><a href='W11.html'>W11</a><ul class='dropdown'><li><a href='1a抽點-2.html'>1a抽點-2</a></li></ul><li><a href='41023124.html'>41023124</a></li>
                       </ul>
                 </nav>
               </div>
@@ -140,6 +140,7 @@ img.add_border {
           
         </header>
     <div id="tipue_search_content">Exam << <a href='Exam.html'>Previous</a> <a href='HW1.html'>Next</a> >> HW1<br /><h1>w13</h1>
+<p><button id="keyword">Keyword</button><button id="w13">列出 10 個座標</button><button id="asd">方格中列出 10 個座標</button><button id="zxc">隨機產生方格</button></p>
 <script src="./../cmsimde/static/brython.js"></script>
 <script src="./../cmsimde/static/brython_stdlib.js"></script>
 <!-- for ggame -->
@@ -267,7 +268,16 @@ asd = beditor.editor(src, "kw_editor", "kw_console", "kw__container", "kw_py_src
 document["asd"].bind("click", asd.prog)
 </script>
 </p>
-<p><button id="keyword">Keyword</button><button id="w13">列出 10 個座標</button><button id="asd">方格中列出 10 個座標</button></p><br />Exam << <a href='Exam.html'>Previous</a> <a href='HW1.html'>Next</a> >> HW1</div>
+<p>
+<script type="text/python3">
+import beditor
+from browser import document
+url = "https://gist.githubusercontent.com/41023124/6bf639113f6efb2428d75a802ded3ddd/raw/e0ea8faf604054c00c99c12c60ca376c10bd9e6f/%25E9%259A%25A8%25E6%25A9%259F%25E7%2594%25A2%25E7%2594%259F%25E6%2596%25B9%25E6%25A0%25BC"
+src = open(url).read()
+zxc = beditor.editor(src, "kw_editor", "kw_console", "kw__container", "kw_py_src")
+document["zxc"].bind("click", zxc.prog)
+</script>
+</p><br />Exam << <a href='Exam.html'>Previous</a> <a href='HW1.html'>Next</a> >> HW1</div>
         
     <!-- footer -->
       <div class="container">
