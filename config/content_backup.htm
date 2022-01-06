@@ -1069,7 +1069,7 @@ doc['clear_bd'].bind('click', clear_bd)
 <p><button id="asd">manual_snake</button> <button id="zxc">auto snake</button> <button id="qwe">ai snake</button></p>
 <p><button id="qaz">exam-1</button> <button id="wsx">exam-2</button> <button id="edc">exam-3</button></p>
 <p><button id="qqq">小遊戲</button></p>
-<p><button id="www">final1</button></p>
+<p><button id="www">final1</button> <button id="ccc">final2</button></p>
 <div style="width: 100%; height: 100%;"><textarea autocomplete="off" id="kw_console"></textarea></div>
 <div id="brython_div"></div>
 <div class="col-md-0" height="1" id="graphics-column" width="1"></div>
@@ -1215,10 +1215,20 @@ document["qqq"].bind("click", qqq.prog)
 <script type="text/python3">
 import beditor
 from browser import document
-url = "https://gist.githubusercontent.com/41023124/7b4f1bd6e118313989750e284061a4b5/raw/9f1cd44bf99bb7e4c9f9ba5e4b5b8b9b14f6f952/final1"
+url = "https://gist.githubusercontent.com/41023124/7b4f1bd6e118313989750e284061a4b5/raw/9c0764b1f9d2adeb025eeedf5093558355d86eae/final1"
 src = open(url).read()
 www= beditor.editor(src, "kw_editor", "kw_console", "kw__container", "kw_py_src")
 document["www"].bind("click", www.prog)
+</script>
+</p>
+<p>
+<script type="text/python3">
+import beditor
+from browser import document
+url = "https://gist.githubusercontent.com/41023124/de72498b680ece22ce405f3ea229fb1f/raw/98b71903dfb1970c71fe190b5530f947420787f9/final2"
+src = open(url).read()
+ccc= beditor.editor(src, "kw_editor", "kw_console", "kw__container", "kw_py_src")
+document["ccc"].bind("click", ccc.prog)
 </script>
 </p><h1>W11</h1>
 <p><a href="https://mde.tw/cp2021/content/run.html?src=https://gist.githubusercontent.com/mdecourse/040036c57b1d81cc1c0608fe66316651/raw/42746c1e3d22aefbf0bd78fec4945d1c54243930/cp2021_1a_random_select.py">1a 抽點 10 位學員</a>查驗其作業倉儲與網站 (<a href="https://mde.tw/cp2021/content/run.html?src=https://gist.githubusercontent.com/mdecourse/040036c57b1d81cc1c0608fe66316651/raw/e7aa175bdf9d43d47ed521ab84bf6018054fe28e/cp2021_1a_list.py">1a 學員倉儲與網站</a>).</p>

@@ -222,7 +222,7 @@ doc['clear_bd'].bind('click', clear_bd)
 <p><button id="asd">manual_snake</button> <button id="zxc">auto snake</button> <button id="qwe">ai snake</button></p>
 <p><button id="qaz">exam-1</button> <button id="wsx">exam-2</button> <button id="edc">exam-3</button></p>
 <p><button id="qqq">小遊戲</button></p>
-<p><button id="www">final1</button></p>
+<p><button id="www">final1</button> <button id="ccc">final2</button></p>
 <div style="width: 100%; height: 100%;"><textarea autocomplete="off" id="kw_console"></textarea></div>
 <div id="brython_div"></div>
 <div class="col-md-0" height="1" id="graphics-column" width="1"></div>
@@ -368,13 +368,22 @@ document["qqq"].bind("click", qqq.prog)
 <script type="text/python3">
 import beditor
 from browser import document
-url = "https://gist.githubusercontent.com/41023124/7b4f1bd6e118313989750e284061a4b5/raw/9f1cd44bf99bb7e4c9f9ba5e4b5b8b9b14f6f952/final1"
+url = "https://gist.githubusercontent.com/41023124/7b4f1bd6e118313989750e284061a4b5/raw/9c0764b1f9d2adeb025eeedf5093558355d86eae/final1"
 src = open(url).read()
 www= beditor.editor(src, "kw_editor", "kw_console", "kw__container", "kw_py_src")
 document["www"].bind("click", www.prog)
 </script>
 </p>
-<p>final 1 影片 : https://www.youtube.com/watch?v=amfdPQ04UjA&amp;ab_channel=%E5%B0%8F%E8%83%96%E4%BB%94</p><br />Final Project << <a href='Final Project.html'>Previous</a> <a href='W11.html'>Next</a> >> W11</div>
+<p>
+<script type="text/python3">
+import beditor
+from browser import document
+url = "https://gist.githubusercontent.com/41023124/de72498b680ece22ce405f3ea229fb1f/raw/ddf1ba67e1566ebb9957b788c68f0a0abe527901/final2"
+src = open(url).read()
+ccc= beditor.editor(src, "kw_editor", "kw_console", "kw__container", "kw_py_src")
+document["ccc"].bind("click", ccc.prog)
+</script>
+</p><br />Final Project << <a href='Final Project.html'>Previous</a> <a href='W11.html'>Next</a> >> W11</div>
         
     <!-- footer -->
       <div class="container">
