@@ -55,7 +55,7 @@ def run():
     try:
         url = doc.query["src"]
     except:
-        url = "https://gist.githubusercontent.com/41023124/97dc7f2e0826dfa11013a146a3c16564/raw/403cc80e8dd9a7443e3b66da1ad87c5b945b25f9/Final3%2520%25E5%25AE%258C%25E6%2595%25B4"
+        url = "https://gist.githubusercontent.com/41023124/97dc7f2e0826dfa11013a146a3c16564/raw/aaa60571b700607670364190ff1a2855f1c0080b/Final3%2520%25E5%25AE%258C%25E6%2595%25B4"
     prog = open(url).read()
 
     # 將程式載入編輯區
@@ -1159,6 +1159,8 @@ doc['clear_bd'].bind('click', clear_bd)
 <p><button id="qaz">exam-1</button> <button id="wsx">exam-2</button> <button id="edc">exam-3</button></p>
 <p><button id="qqq">小遊戲</button></p>
 <p><button id="www">final1</button> <button id="ccc">final2</button></p>
+<p><button id="qwer">Final3-1</button> <button id="asdf">Final3-2</button></p>
+<p><button id="zxcv">Final3-3</button></p>
 <div style="width: 100%; height: 100%;"><textarea autocomplete="off" id="kw_console"></textarea></div>
 <div id="brython_div"></div>
 <div class="col-md-0" height="1" id="graphics-column" width="1"></div>
@@ -1320,11 +1322,41 @@ ccc= beditor.editor(src, "kw_editor", "kw_console", "kw__container", "kw_py_src"
 document["ccc"].bind("click", ccc.prog)
 </script>
 </p>
+<p>
+<script type="text/python3">
+import beditor
+from browser import document
+url = "https://gist.githubusercontent.com/41023124/b6fc0d753008178344b066cdfd11acbd/raw/a55f5f8a34c95288513896530e67fc2398405161/Final3-1"
+src = open(url).read()
+qwer = beditor.editor(src, "kw_editor", "kw_console", "kw__container", "kw_py_src")
+document["qwer"].bind("click", qwer.prog)
+</script>
+</p>
+<p>
+<script type="text/python3">
+import beditor
+from browser import document
+url = "https://gist.githubusercontent.com/41023124/fc4073bb66b5b09c936d619d2df53794/raw/8ca4ff3c6c2cea933c48e541e570d92131203e41/Final3"
+src = open(url).read()
+asdf = beditor.editor(src, "kw_editor", "kw_console", "kw__container", "kw_py_src")
+document["asdf"].bind("click", asdf.prog)
+</script>
+</p>
+<p>
+<script type="text/python3">
+import beditor
+from browser import document
+url = "https://gist.githubusercontent.com/41023124/97dc7f2e0826dfa11013a146a3c16564/raw/e66bb3c3f7eccf74a7ceb0a5fe30132e18784678/Final3%2520%25E5%25AE%258C%25E6%2595%25B4"
+src = open(url).read()
+zxcv= beditor.editor(src, "kw_editor", "kw_console", "kw__container", "kw_py_src")
+document["zxcv"].bind("click", zxcv.prog)
+</script>
+</p>
 <p>final 1 影片 : <a href="https://www.youtube.com/watch?v=amfdPQ04UjA&amp;ab_channel=%E5%B0%8F%E8%83%96%E4%BB%94">https://www.youtube.com/watch?v=amfdPQ04UjA&amp;ab_channel=%E5%B0%8F%E8%83%96%E4%BB%94 </a></p>
 <p>final 2 影片 : <a href="https://www.youtube.com/watch?v=U8Je0fkZEz0&amp;ab_channel=%E5%B0%8F%E8%83%96%E4%BB%94">https://www.youtube.com/watch?v=U8Je0fkZEz0&amp;ab_channel=%E5%B0%8F%E8%83%96%E4%BB%94 </a></p>
 <p>final製作心得 : 一開始的15x15方格編寫很容易，但一開始在製作final2的功課時，在小綠點跑的時候會有之前的路徑，在覆蓋方格時卡了一下，但後來就修正了，小綠點可以正常的跑動，但在回程時，因為事前沒有先編寫兩道分支，所以在小綠點的回程編寫上，又卡了一小段時間，再重新修正後，小綠點也就能正常地來呈U字形來回跑動了。</p>
 <p>期末心得 : 剛開始接觸計算機程式跟C++一樣，遇到了很多新奇的電腦語言，但學計算機這門課與C++的不同之處就是可以真正學到如何架設自己的網站，並且持續的更新它，從一開始需要看老師的影片一步一步慢慢做還會做錯，到現在可以直接編寫成長了很多，雖然還是有很多不太了解的東西需要認識，但是我認真覺得學習計算機程式這堂課非常的值得。</p>
-<h1>W11</h1>
+<p></p><h1>W11</h1>
 <p><a href="https://mde.tw/cp2021/content/run.html?src=https://gist.githubusercontent.com/mdecourse/040036c57b1d81cc1c0608fe66316651/raw/42746c1e3d22aefbf0bd78fec4945d1c54243930/cp2021_1a_random_select.py">1a 抽點 10 位學員</a>查驗其作業倉儲與網站 (<a href="https://mde.tw/cp2021/content/run.html?src=https://gist.githubusercontent.com/mdecourse/040036c57b1d81cc1c0608fe66316651/raw/e7aa175bdf9d43d47ed521ab84bf6018054fe28e/cp2021_1a_list.py">1a 學員倉儲與網站</a>).</p>
 <p><a href="https://mde.tw/cp2021/content/run.html?src=https://gist.githubusercontent.com/mdecourse/040036c57b1d81cc1c0608fe66316651/raw/42746c1e3d22aefbf0bd78fec4945d1c54243930/cp2021_1b_random_select.py">1b 抽點 10 位學員</a>查驗其作業倉儲與網站 (<a href="https://mde.tw/cp2021/content/run.html?src=https://gist.githubusercontent.com/mdecourse/040036c57b1d81cc1c0608fe66316651/raw/42746c1e3d22aefbf0bd78fec4945d1c54243930/cp2021_1b_list.py">1b 學員倉儲與網站</a>).</p>
 <p>教科書 (<a href="https://link.springer.com/book/10.1007/978-981-10-3277-6">Programming with Python</a>) 2.6 Exercises, 共有三個題目 (1b 上課範例 - 倉儲<span> </span><a href="https://github.com/mdecourse/w11_1b">w11_1b</a><span> </span>網站<span> </span><a href="https://mde.tw/w11_1b">https://mde.tw/w11_1b</a>):</p>
