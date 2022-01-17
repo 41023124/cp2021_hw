@@ -85,7 +85,7 @@ doc['clear_bd'].bind('click', clear_bd)
 <p><!-- 以下的表單與按鈕與前面的 Javascript doSave 函式以及 FileSaver.min.js 互相配合 --></p>
 <form><label>Filename: <input id="kw_filename" placeholder="input file name" type="text"/>.py</label> <input onclick="doSave('kw_py_src', 'kw_filename');" type="submit" value="Save"/></form>
 <p><button id="kw_run">Run</button> <button id="kw_show_console">Output</button> <button id="kw_clear_console">清除輸出區</button> <button id="clear_bd">清除繪圖區</button> <button onclick="window.location.reload()">Reload</button></p>
-<p><button id="w13">Final 3-1</button> <button id="keyword">Final 3-2</button></p>
+<p><button id="w13">Final 3-1</button> <button id="keyword">Final 3-2</button> <button id="qqwe">Final 3-3</button></p>
 <div style="width: 100%; height: 100%;"><textarea autocomplete="off" id="kw_console"></textarea></div>
 <div id="brython_div"></div>
 <div class="col-md-0" height="1" id="graphics-column" width="1"></div>
@@ -274,6 +274,16 @@ url = "https://gist.githubusercontent.com/41023124/b6fc0d753008178344b066cdfd11a
 src = open(url).read()
 w13 = beditor.editor(src, "kw_editor", "kw_console", "kw__container", "kw_py_src")
 document["w13"].bind("click", w13.prog)
+</script>
+</p>
+<p>
+<script type="text/python3">
+import beditor
+from browser import document
+url = "https://gist.githubusercontent.com/41023124/97dc7f2e0826dfa11013a146a3c16564/raw/e66bb3c3f7eccf74a7ceb0a5fe30132e18784678/Final3%2520%25E5%25AE%258C%25E6%2595%25B4"
+src = open(url).read()
+qqwe = beditor.editor(src, "kw_editor", "kw_console", "kw__container", "kw_py_src")
+document["qqwe"].bind("click", qqwe.prog)
 </script>
 </p><h1>Exam</h1>
 <p></p>
