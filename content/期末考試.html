@@ -140,15 +140,33 @@ img.add_border {
           
         </header>
     <div id="tipue_search_content">About << <a href='About.html'>Previous</a> <a href='Exam.html'>Next</a> >> Exam<br /><h1>期末考試</h1>
-<!-- 導入 brython 程式庫 -->
 <script src="./../cmsimde/static/brython.js"></script>
 <script src="./../cmsimde/static/brython_stdlib.js"></script>
-<!-- 啟動 Brython -->
+<!-- for ggame -->
+<p>
+<script src="./../cmsimde/static/jquery-3.3.1.min.js"></script>
+<script src="./../cmsimde/static/jquery-ui.1.12.1.min.js"></script>
+<script src="./../cmsimde/static/pixi-3.0.5.min.js"></script>
+<script src="./../cmsimde/static/buzz-1.2.1.js"></script>
+<script src="./../cmsimde/static/bs.js"></script>
+<script src="./../downloads/brython_modules.js"></script>
+</p>
+<!-- Cango 程式庫 -->
+<p>
+<script src="./../cmsimde/static/Cango-24v03-min.js"></script>
+<script src="./../cmsimde/static/CangoAxes-6v01-min.js"></script>
+<script src="./../cmsimde/static/gearUtils-09.js"></script>
+<script src="./../cmsimde/static/SVGpathUtils-6v03-min.js"></script>
+</p>
+<!-- for Konva 程式庫 -->
+<p>
+<script src="./../cmsimde/static/konva.min.js"></script>
 <script>
 window.onload=function(){
 brython({debug:1, pythonpath:['./../cmsimde/static/','./../downloads/py/']});
 }
 </script>
+</p>
 <p><!-- 導入 FileSaver 與 filereader --></p>
 <p>
 <script src="./../cmsimde/static/ace/FileSaver.min.js" type="text/javascript"></script>
@@ -175,6 +193,7 @@ function doSave(storage_id, filename){
 <p>
 <script type="text/python3">
 from browser import document as doc
+from browser import html
 import ace
 # 清除畫布
 def clear_bd(ev):
@@ -182,53 +201,224 @@ def clear_bd(ev):
     bd.clear()
 # Brython 3.3.4 內建的 container 名稱為  'container' 且 turtle 輸出為 svg 必須使用 div 訂定 id
 Ace = ace.Editor(editor_id="kw_editor", console_id="kw_console", container_id="kw__container", storage_id="kw_py_src" )
-# 從 gist 取出程式碼後, 放入 editor 作為 default 程式
-def run():
-    # 利用 get 取下 src 變數值
-    try:
-        url = doc.query["src"]
-    except:
-        url = "https://gist.githubusercontent.com/41023124/97dc7f2e0826dfa11013a146a3c16564/raw/aaa60571b700607670364190ff1a2855f1c0080b/Final3%2520%25E5%25AE%258C%25E6%2595%25B4"
-    prog = open(url).read()
+Ace.editor.setValue("""
 
-    # 將程式載入編輯區
-    Ace.editor.setValue(prog)
-    Ace.editor.scrollToRow(0)
-    Ace.editor.gotoLine(0)
-    # 直接執行程式
-    #ns = {'__name__':'__main__'}
-    #exec(prog, ns)
-    # 按下 run 按鈕
-    Ace.run()
-
+""")
+Ace.editor.scrollToRow(0)
+Ace.editor.gotoLine(0)
 # 執行程式, 顯示輸出結果與清除輸出結果及對應按鈕綁定
 doc['kw_run'].bind('click', Ace.run)
 doc['kw_show_console'].bind('click', Ace.show_console)
 doc['kw_clear_console'].bind('click', Ace.clear_console)
 doc['clear_bd'].bind('click', clear_bd)
-# 呼叫函式執行
-run()
 </script>
 </p>
 <p><!-- 用來顯示程式碼的 editor 區域 --></p>
 <div id="kw_editor" style="width: 600px; height: 300px;"></div>
 <p><!-- 以下的表單與按鈕與前面的 Javascript doSave 函式以及 FileSaver.min.js 互相配合 --></p>
-<!-- 存擋表單開始 --><form><label>Filename: <input id="kw_filename" placeholder="input file name" type="text"/>.py</label> <input onclick="doSave('kw_py_src', 'kw_filename');" type="submit" value="Save"/></form><!-- 存擋表單結束 -->
-<p></p>
-<!-- 執行與清除按鈕開始 -->
-<p><button id="kw_run">Run</button> <button id="kw_show_console">Output</button> <button id="kw_clear_console">清除輸出區</button><button id="clear_bd">清除繪圖區</button><button onclick="window.location.reload()">Reload</button></p>
-<!-- 執行與清除按鈕結束 -->
-<p></p>
-<!-- 程式執行 ouput 區 -->
+<form><label>Filename: <input id="kw_filename" placeholder="input file name" type="text"/>.py</label> <input onclick="doSave('kw_py_src', 'kw_filename');" type="submit" value="Save"/></form>
+<p><button id="kw_run">Run</button> <button id="kw_show_console">Output</button> <button id="kw_clear_console">清除輸出區</button> <button id="clear_bd">清除繪圖區</button> <button onclick="window.location.reload()">Reload</button></p>
+<p><button id="w13">Final 3-1</button> <button id="keyword">Final 3-2</button> <button id="qqwe">Final 3-3</button></p>
 <div style="width: 100%; height: 100%;"><textarea autocomplete="off" id="kw_console"></textarea></div>
-<!-- Brython 程式執行的結果, 都以 brython_div 作為切入位置 -->
 <div id="brython_div"></div>
-<!-- 導入 gearUtils-0.9.js Cango 齒輪繪圖程式庫 -->
-<script src="https://mde.tw/cp2021/cmsimde/static/Cango-24v03-min.js"></script>
-<script src="https://mde.tw/cp2021/cmsimde/static/gearUtils-09.js"></script>
-<script src="https://mde.tw/cp2021/cmsimde/static/SVGpathUtils-6v03-min.js"></script>
-<script src="https://mde.tw/cp2021/cmsimde/static/sylvester.js"></script>
-<script src="https://mde.tw/cp2021/cmsimde/static/PrairieDraw.js"></script><br />About << <a href='About.html'>Previous</a> <a href='Exam.html'>Next</a> >> Exam</div>
+<div class="col-md-0" height="1" id="graphics-column" width="1"></div>
+<p><!-- ****************************** keyword start -->
+<script type="text/python3">
+from browser import document as doc
+# 導入位於 static 目錄下的 beditor.py 
+import beditor
+# 利用 beditor.py 中的 editor 類別建立案例, 對應到 kw1
+kw1 = beditor.editor("""# 從 browser 導入 document 並設為 doc
+from browser import document as doc
+# 使用者可以透過 window 當作介面使用其他 Javascript 功能
+from browser import html, window
+# 用於定時執行特定函式
+import browser.timer
+# 導入數學模組
+import math
+# 導入亂數模組
+from random import random, randint
+
+#先畫地圖
+def draw():
+    global xpos,ypos,ax,ay,px,py,a,b,rand,socre     #設定顏色-白
+    ctx.fillStyle = "white" # 畫布填入白色
+    ctx.fillRect(0, 0, canvas.width, canvas.height)
+    #共15行白色的
+    for line_x in range(15):
+        #直行X值
+        x_p  = line_x*50
+        #15行橫列
+        for line_y in range(15):
+            #橫列Y值
+            y_p = line_y*50 
+            #設定顏色
+            ctx.strokeStyle = "#ff0000" #線條顏色填入
+            ctx.strokeRect(x_p, y_p, 50, 50)
+    #方塊填入綠色
+    ctx.fillStyle = "lime"
+    ctx.fillRect(0,0,50,50)
+    #隨機方塊填入紅色
+    for i in range(rand):
+        ctx.fillStyle = "red"
+        ctx.fillRect(xrand[i]*50+1, yrand[i]*50+1, 50, 50)
+
+#主要程式
+def game():    
+    global xpos,ypos,ax,ay,px,py,a,b,rand,socre,start,time
+    #設定顏色-白
+    ctx.fillStyle = "white"
+    # 畫布填入白色
+    ctx.fillRect(0, 0, canvas.width, canvas.height)
+    #共15行白色的
+    for line_x in range(15):
+        #直行應該的X值
+        x_p  = line_x*50
+        #15行橫列
+        for line_y in range(15):
+            #橫列應該的Y值
+            y_p = line_y*50 
+            #設定顏色
+            ctx.strokeStyle = "#ff0000"
+            #將線條填入顏色
+            ctx.strokeRect(x_p, y_p, 50, 50)
+    if (rand !=0):
+        #亂數方塊位置
+        for i in range(rand):
+            ctx.fillStyle = "red"
+            ctx.fillRect(xrand[i]*50+1, yrand[i]*50+1, 50, 50)
+        if(start==True):
+            if(xpos==0 and ypos==0): #上層順時針
+                if(time==0):
+                    ax=1
+                    ay=0
+                    time+=1
+                else:
+                    ax=0
+                    ay=0
+                    start=False
+            if(xpos==14 and ypos==0):
+                ax=0
+                ay=1
+            if(xpos==0 and ypos==14): #下層順時針
+                ax=0
+                ay=-1
+            if(xpos==14 and ypos==14):
+                ax=-1
+                ay=0
+        else:
+                if(xpos != xrand[a]): #先走X的距離
+                    if(xpos > xrand[a]):
+                        ax=-1
+                    if(xpos < xrand[a]):
+                        ax=1
+                else:
+                    ax=0
+                if(ypos != yrand[a] and xpos == xrand[a]): #再走Y的距離
+                    if(ypos > yrand[a]):
+                        ay=-1
+                    if(ypos < yrand[a]):
+                        ay=1
+                else:
+                    ay=0
+        xpos=xpos+ax
+        ypos=ypos+ay
+        
+        px=xpos*50+1  #判定塗色位置
+        py=ypos*50+1
+        ctx.fillStyle = "lime" #方塊顏色
+        ctx.fillRect(px,py,50,50)
+        if(xpos==xrand[a] and ypos==yrand[a]):
+            rand=rand-1
+           
+            socre=socre+1 #分數增加
+            score_doc.innerHTML = "Score: " + str(socre)
+            
+            del xrand[a]  #刪除方塊
+            del yrand[a]
+            
+            b=abs(xrand[0]-xpos)+abs(yrand[0]-ypos)  #判定最近方塊
+            a=0
+            for i in range(rand):
+                if(abs(xrand[i]-xpos)+abs(yrand[i]-ypos)<b):
+                    b=abs(xrand[i]-xpos)+abs(yrand[i]-ypos)
+                    a=i
+    else:
+        ctx.fillStyle = "lime"
+        ctx.fillRect(0,0,50,50) 
+
+
+#開始執行
+def run(ev):
+    browser.timer.set_interval(game, 100) #遊戲速度100毫秒執行一次
+
+# 利用 html 建立 canvas 超文件物件            
+canvas = html.CANVAS(width = 750, height = 750)
+canvas.id = "canvas"
+brython_div = doc["brython_div"]
+brython_div <= canvas
+canvas = doc["canvas"]
+ctx = canvas.getContext("2d")
+
+#分數
+score_doc = html.DIV("score1")
+score_doc.id = "score1"
+brython_div <= score_doc
+score_doc.innerHTML = "Score: " + str(0)
+
+xpos=ypos=0 #xy方塊座標
+px=py=1 #xy像素座標
+ax=ay=0 #xy加速度
+socre=0 #分數
+#隨機位置
+xrand=[math.floor(random()*14),math.floor(random()*14),math.floor(random()*14),math.floor(random()*14),math.floor(random()*14)]
+yrand=[math.floor(random()*14),math.floor(random()*14),math.floor(random()*14),math.floor(random()*14),math.floor(random()*14)]
+#目標
+a=0 
+#目標距離判定
+b=(xrand[0]-xpos)+(yrand[0]-xpos) 
+#剩餘目標
+rand=5
+#先走順時鐘
+start=True
+time=0
+#判斷距離遠近
+for i in range(rand):
+    if(abs(xrand[i]-xpos)+abs(yrand[i]-ypos)<b):
+        b=abs(xrand[i]-xpos)+abs(yrand[i]-ypos)
+        a=i
+#先畫圖
+draw()
+#再判斷開始
+#設定按鈕
+brython_div <= html.BUTTON("啟動", id="power")
+doc["power"].bind("click", run) #按下按鈕開始執行程式
+
+""", "kw_editor", "kw_console", "kw__container", "kw_py_src")
+# id 為 "keyword" 的按鈕點按時, 執行 kw1 物件中的 prog 方法
+doc["keyword"].bind('click', kw1.prog)
+</script>
+</p>
+<p>
+<script type="text/python3">
+import beditor
+from browser import document
+url = "https://gist.githubusercontent.com/41023124/b6fc0d753008178344b066cdfd11acbd/raw/a55f5f8a34c95288513896530e67fc2398405161/Final3-1"
+src = open(url).read()
+w13 = beditor.editor(src, "kw_editor", "kw_console", "kw__container", "kw_py_src")
+document["w13"].bind("click", w13.prog)
+</script>
+</p>
+<p>
+<script type="text/python3">
+import beditor
+from browser import document
+url = "https://gist.githubusercontent.com/41023124/97dc7f2e0826dfa11013a146a3c16564/raw/e66bb3c3f7eccf74a7ceb0a5fe30132e18784678/Final3%2520%25E5%25AE%258C%25E6%2595%25B4"
+src = open(url).read()
+qqwe = beditor.editor(src, "kw_editor", "kw_console", "kw__container", "kw_py_src")
+document["qqwe"].bind("click", qqwe.prog)
+</script>
+</p><br />About << <a href='About.html'>Previous</a> <a href='Exam.html'>Next</a> >> Exam</div>
         
     <!-- footer -->
       <div class="container">
